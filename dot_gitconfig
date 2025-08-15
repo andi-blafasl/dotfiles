@@ -1,0 +1,73 @@
+[user]
+	name = Andreas H.
+	email = andreas.hoesl@mayr.de
+[gui]
+	recentrepo = V:/kix
+	recentrepo = O:/Programme/PDFMailer
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+[mergetool]
+	prompt = false
+	keepBackup = false
+	keepTemporaries = false
+[merge]
+# Comment: This is to unlock Visual Studio Code as your Git merge tool
+#	tool = vscode
+	guitool = vscode
+#	tool = meld
+#	guitool = meld
+[mergetool "vscode"]
+# Comment: Original way before three-way merge shown commented out
+#	cmd = code --wait $MERGED
+# Comment: For "Three-way merge"
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[mergetool "winmerge"]
+	trustExitCode = true
+	path = C:/Program Files (x86)/WinMerge/WinMergeU.exe
+[mergetool "meld"]
+	trustExitCode = true
+	path = \"C:/Program Files/Meld/meld.exe\"
+	cmd = \"C:/Program Files/Meld/meld.exe\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output \"$MERGED\"
+[core]
+	autocrlf = input
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+	#editor = \"C:/Program Files/Notepad++/notepad++.exe\"
+    editor = code --wait
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[http]
+	sslbackend = schannel
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
+	autosquash = false
+	updateRefs = false
+[diff]
+# Comment: This is to unlock Visual Studio Code as your Git diff tool
+#	tool = vscode
+	guitool = vscode
+#	tool = meld
+#	guitool = meld
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "meld"]
+	path = \"C:/Program Files/Meld/meld.exe\"
+	cmd = \"C:/Program Files/Meld/meld.exe\" \"$LOCAL\" \"$REMOTE\"
+[credential "https://gitlab.chrmayr.lan"]
+	provider = generic
+[safe]
+	directory = %(prefix)///de-mst-sfs003/c$/cryptoblocker
+	directory = %(prefix)///de-mst-sfs001/c$/CryptoBlocker
+	directory = %(prefix)///de-mst-sfs002/c$/CryptoBlocker
+	directory = %(prefix)///de-mst-sfs003/c$/CryptoBlocker
+	directory = %(prefix)///de-mst-sfs004/c$/CryptoBlocker
+	directory = %(prefix)///de-mst-sfs005/c$/CryptoBlocker
+	directory = %(prefix)///fs06/c$/CryptoBlocker
+	directory = C:/Users/hoesl/TEMP-priv/CryptoBlocker
+[submodule]
+	#recurse = true

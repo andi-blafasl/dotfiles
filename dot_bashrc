@@ -1,0 +1,29 @@
+if [ -x "$(which kubectl 2>/dev/null || echo '/dev/null')" ]; then
+	source <(kubectl completion bash)
+	alias k=kubectl
+	complete -o default -F __start_kubectl k
+	#export KUBE_EDITOR='"c:\Program Files\Vim\vim90\vim.exe"'
+fi
+
+if [ -x "$(which helm 2>/dev/null || echo '/dev/null')" ]; then
+	source <(helm completion bash)
+	alias h=helm
+	complete -o default -F __start_helm h
+fi
+
+if [ -x "$(which oh-my-posh 2>/dev/null || echo '/dev/null')" ]; then
+	eval "$(oh-my-posh init bash --config ~/.local/share/omp-themes/andi.omp.json)"
+fi
+
+#
+#__kube_ps1()
+#{
+#    # Get current context
+#    CONTEXT=$(grep "current-context:" ~/.kube/config | sed "s/current-context: //")
+#
+#    if [ $CONTEXT != '""' ]; then
+#        echo "(k:${CONTEXT})"
+#    fi
+#}
+#
+#PS1="${PS1%\\n*}"' \[\033[1;34m\]`__kube_ps1`\[\033[0m\]\n$'

@@ -1,0 +1,1 @@
+load(io.popen('oh-my-posh init cmd --config %USERPROFILE%/.local/share/omp-themes/andi.omp.json'):read("*a"))()
